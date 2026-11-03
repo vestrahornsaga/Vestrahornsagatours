@@ -65,6 +65,13 @@ img,video{max-width:100%}
 .cal-note{color:#4d4656;background:#ffffff;border:1px dashed #cfc7d8;border-radius:10px;padding:16px;margin:0}
 .cal-nav:focus-visible,.cal-day:focus-visible,.cal-join:focus-visible{outline:2px solid #4a2c6e;outline-offset:2px}
 @media (max-width:480px){.cal-day{min-height:48px;padding:3px}.cal-count{font-size:12px}.cal-day.has .cal-num{font-size:10px;top:2px;left:4px}}
+.cal-open{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(255,255,255,.22);border-radius:4px;padding:1px 5px}
+.cal-other{margin-top:16px;background:#ffffff;border:1px dashed #4a2c6e;border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.cal-other h4{margin:0;font-family:Montserrat,sans-serif;font-size:17px;color:#231f29}
+.cal-other p{margin:0;color:#4d4656;font-size:15px}
+.cal-other a{padding:9px 16px;border:2px solid #4a2c6e;color:#4a2c6e;border-radius:6px;text-decoration:none;font-family:Montserrat,sans-serif;font-weight:600;font-size:14px}
+.cal-other a:hover{background:#4a2c6e;color:#ffffff}
+@media (max-width:480px){.cal-open{font-size:9px;padding:0 3px}}
 </style>
 </head>
 <body>
@@ -263,6 +270,7 @@ img,video{max-width:100%}
 <div style="min-width: 0">
 <h3 style="margin: 0 0 14px; font-family: Montserrat, sans-serif; font-size: 20px">Næstu ferðadagar</h3>
 <ul class="cal-list" id="cal-list"><li class="cal-note">…</li></ul>
+<div class="cal-other"><h4>Hentar annar dagur betur?</h4><p>Við erum mjög sveigjanleg. Sendu bókunarbeiðni með þeirri dagsetningu sem hentar þér og við gerum okkar besta til að fara í ferðina þann dag.</p><a href="#contact">Biðja um annan dag</a></div>
 </div>
 </div>
 </section>
@@ -311,7 +319,7 @@ img,video{max-width:100%}
 <script>
 /* TOUR CALENDAR: reads /calendar.csv (one line per tour day: date,tour,people). Edit that file in GitHub. */
 (function(){
-var T={"booked": "bókaðir", "left_one": "1 sæti laust", "left_n": "{n} sæti laus", "full": "Fullbókað", "join": "Bóka þennan dag", "empty": "Engir ferðadagar eru fyrirhugaðir enn. Sendu bókunarbeiðni með óskadagsetningu og þú gætir byrjað fyrsta hópinn.", "error": "Ekki tókst að hlaða dagatalinu. Þú getur samt sent bókunarbeiðni hér fyrir neðan.", "weekdays": ["Mán", "Þri", "Mið", "Fim", "Fös", "Lau", "Sun"], "locale": "is-IS", "vname": "Vestrahorn Saga Tour", "sname": "Stokksnes Saga Tour"}, MAX=10, tours=[], view=null, first=null, last=null;
+var T={"booked": "bókaðir", "left_one": "1 sæti laust", "left_n": "{n} sæti laus", "full": "Fullbókað", "join": "Bóka þennan dag", "empty": "Engir ferðadagar eru fyrirhugaðir enn. Sendu bókunarbeiðni með óskadagsetningu og þú gætir byrjað fyrsta hópinn.", "error": "Ekki tókst að hlaða dagatalinu. Þú getur samt sent bókunarbeiðni hér fyrir neðan.", "weekdays": ["Mán", "Þri", "Mið", "Fim", "Fös", "Lau", "Sun"], "locale": "is-IS", "vname": "Vestrahorn Saga Tour", "sname": "Stokksnes Saga Tour", "open": "Opið", "open_long": "Opið · vertu fyrst/ur til að bóka"}, MAX=10, tours=[], view=null, first=null, last=null;
 var today=new Date(); today.setHours(0,0,0,0);
 function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
 function key(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
@@ -355,7 +363,7 @@ function renderMonth(){
       cell.setAttribute("aria-label",date.toLocaleDateString(T.locale,{weekday:"long",day:"numeric",month:"long"})+": "+here.map(function(x){return tourName(x)+", "+x.people+"/"+MAX+" "+T.booked}).join("; "));
     } else cell=el("div","cal-day"+(date<today?" past":""));
     cell.append(el("span","cal-num",String(d)));
-    if(date>=today)here.forEach(function(x){cell.append(el("span","cal-count",x.people+"/"+MAX))});
+    if(date>=today)here.forEach(function(x){cell.append(el("span","cal-count",x.people+"/"+MAX));if(x.people===0)cell.append(el("span","cal-open",T.open))});
     grid.append(cell);
   }
   var m=view.getFullYear()*12+view.getMonth();
@@ -370,7 +378,7 @@ function renderList(){
     var li=el("li","cal-item "+x.type+(x.people>=MAX?" full":""));
     var d=el("div","d");
     d.append(el("span","tn",tourName(x)),el("span","dt",x.date.toLocaleDateString(T.locale,{weekday:"long",day:"numeric",month:"long"})));
-    var c=el("div","c"); var b=el("b",null,x.people+"/"+MAX); c.append(b," "+T.booked+" · "+left(x));
+    var c=el("div","c"); var b=el("b",null,x.people+"/"+MAX); if(x.people===0)c.append(b," · "+T.open_long);else c.append(b," "+T.booked+" · "+left(x));
     var btn=el("button","cal-join",x.people>=MAX?T.full:T.join); btn.type="button"; btn.disabled=x.people>=MAX;
     btn.addEventListener("click",function(){join(x)});
     var bar=el("div","cal-bar"); var i=el("i"); i.style.width=(x.people/MAX*100)+"%"; bar.append(i);
