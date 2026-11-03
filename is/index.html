@@ -42,26 +42,29 @@ img,video{max-width:100%}
 .cal-day{min-height:56px;border-radius:8px;background:#f7f5f9;padding:5px;display:flex;flex-direction:column;gap:3px;font-size:13px;color:#4d4656;border:0;font:inherit;text-align:left}
 .cal-day.blank{background:transparent}
 .cal-day.past{opacity:.45}
-.cal-day.has{background:#ece5f4;color:#231f29;cursor:pointer}
-.cal-day.has:hover{outline:2px solid #4a2c6e}
+.cal-day.has{cursor:pointer;color:#ffffff;position:relative;align-items:center;justify-content:center}
+.cal-day.has.v{background:#4a2c6e}.cal-day.has.s{background:#2f7a8a}.cal-day.has.full{opacity:.55}
+.cal-day.has:hover{outline:3px solid #231f29;outline-offset:1px}
+.cal-day.has .cal-num{position:absolute;top:4px;left:6px;font-size:11px;opacity:.85}
+.cal-count{font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;line-height:1.1;text-align:center}
 .cal-num{font-weight:600;font-size:13px}
-.cal-chip{font-size:11px;font-weight:700;border-radius:4px;padding:1px 4px;color:#ffffff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cal-chip.v{background:#4a2c6e}.cal-chip.s{background:#2f7a8a}.cal-chip.full{background:#8a7fa0}
 .cal-legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-size:13px;color:#4d4656}
-.cal-legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.cal-legend span::before{content:"";display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
 .cal-list{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
-.cal-item{background:#ffffff;border:1px solid #e6e0ec;border-radius:10px;padding:14px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
-.cal-item .d{font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;min-width:0;flex:1 1 180px}
-.cal-item .d small{display:block;font-family:inherit;font-weight:500;color:#6b6473;font-size:13px}
+.cal-item{--t:#4a2c6e;--tb:#f3eef8;background:var(--tb);border:1px solid var(--t);border-left:8px solid var(--t);border-radius:10px;padding:14px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
+.cal-item.s{--t:#2f7a8a;--tb:#eaf4f5}.cal-item.full{opacity:.7}
+.cal-item .d{min-width:0;flex:1 1 180px;display:flex;flex-direction:column;gap:2px}
+.cal-item .tn{font-family:Montserrat,sans-serif;font-weight:700;font-size:18px;color:var(--t);line-height:1.2}
+.cal-item .dt{font-weight:600;font-size:15px;color:#231f29}
 .cal-item .c{font-size:14px;color:#4d4656;font-variant-numeric:tabular-nums}
 .cal-item .c b{color:#231f29}
 .cal-bar{width:100%;height:6px;border-radius:99px;background:#ece8f0;overflow:hidden}
-.cal-bar i{display:block;height:100%;background:#4a2c6e}
-.cal-join{padding:9px 16px;background:#4a2c6e;color:#ffffff;border:0;border-radius:6px;font-family:Montserrat,sans-serif;font-weight:600;font-size:14px;cursor:pointer}
+.cal-bar{background:#ffffff}.cal-bar i{display:block;height:100%;background:var(--t)}
+.cal-join{padding:9px 16px;background:var(--t);color:#ffffff;border:0;border-radius:6px;font-family:Montserrat,sans-serif;font-weight:600;font-size:14px;cursor:pointer}
 .cal-join:disabled{background:#cfc7d8;cursor:default}
 .cal-note{color:#4d4656;background:#ffffff;border:1px dashed #cfc7d8;border-radius:10px;padding:16px;margin:0}
 .cal-nav:focus-visible,.cal-day:focus-visible,.cal-join:focus-visible{outline:2px solid #4a2c6e;outline-offset:2px}
-@media (max-width:480px){.cal-day{min-height:48px;padding:3px}.cal-chip{font-size:10px;padding:1px 2px}}
+@media (max-width:480px){.cal-day{min-height:48px;padding:3px}.cal-count{font-size:12px}.cal-day.has .cal-num{font-size:10px;top:2px;left:4px}}
 </style>
 </head>
 <body>
@@ -347,12 +350,12 @@ function renderMonth(){
     var here=tours.filter(function(x){return x.key===k});
     var cell;
     if(here.length&&date>=today){
-      cell=el("button","cal-day has"); cell.type="button";
+      cell=el("button","cal-day has "+here[0].type+(here[0].people>=MAX?" full":"")); cell.type="button";
       (function(x){cell.addEventListener("click",function(){join(x)})})(here[0]);
       cell.setAttribute("aria-label",date.toLocaleDateString(T.locale,{weekday:"long",day:"numeric",month:"long"})+": "+here.map(function(x){return tourName(x)+", "+x.people+"/"+MAX+" "+T.booked}).join("; "));
     } else cell=el("div","cal-day"+(date<today?" past":""));
     cell.append(el("span","cal-num",String(d)));
-    here.forEach(function(x){cell.append(el("span","cal-chip "+(x.people>=MAX?"full":x.type),x.people+"/"+MAX))});
+    if(date>=today)here.forEach(function(x){cell.append(el("span","cal-count",x.people+"/"+MAX))});
     grid.append(cell);
   }
   var m=view.getFullYear()*12+view.getMonth();
@@ -364,9 +367,9 @@ function renderList(){
   var up=tours.filter(function(x){return x.date>=today});
   if(!up.length){list.append(el("li","cal-note",T.empty));return}
   up.slice(0,8).forEach(function(x){
-    var li=el("li","cal-item");
-    var d=el("div","d",x.date.toLocaleDateString(T.locale,{weekday:"long",day:"numeric",month:"long"}));
-    d.append(el("small",null,tourName(x)));
+    var li=el("li","cal-item "+x.type+(x.people>=MAX?" full":""));
+    var d=el("div","d");
+    d.append(el("span","tn",tourName(x)),el("span","dt",x.date.toLocaleDateString(T.locale,{weekday:"long",day:"numeric",month:"long"})));
     var c=el("div","c"); var b=el("b",null,x.people+"/"+MAX); c.append(b," "+T.booked+" · "+left(x));
     var btn=el("button","cal-join",x.people>=MAX?T.full:T.join); btn.type="button"; btn.disabled=x.people>=MAX;
     btn.addEventListener("click",function(){join(x)});
