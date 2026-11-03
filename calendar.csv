@@ -3,5 +3,7 @@
 # Las lineas que empiezan por # no se muestran en la web.
 # Ejemplo:  2027-03-11,Vestrahorn,4
 fecha,tour,personas
-2027-03-22,vestrahorn,6
-2027-04-02,stokksnes,3
+2027-03-22,vestrahorn,0
+2027-04-02,stokksnes,0
+2027-03-26,vestrahorn,0
+2027-04-04,stokksnes,0
