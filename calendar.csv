@@ -1,0 +1,5 @@
+# CALENDARIO DE TOURS - Vestrahorn Saga Tours
+# Una linea por cada dia de tour: fecha (AAAA-MM-DD), tour (Vestrahorn o Stokksnes), personas apuntadas
+# Las lineas que empiezan por # no se muestran en la web.
+# Ejemplo:  2027-03-11,Vestrahorn,4
+fecha,tour,personas
