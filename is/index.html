@@ -73,6 +73,29 @@ img,video{max-width:100%}
 .cal-other a:hover{background:#4a2c6e;color:#ffffff}
 @media (max-width:480px){.cal-open{font-size:9px;padding:0 3px}}
 </style>
+<style>
+.gal-wrap{max-width:1200px;margin:0 auto;padding:88px 24px;box-sizing:border-box}
+.gal-grid{columns:4 220px;column-gap:14px;margin-top:32px}
+.gal-item{display:block;width:100%;margin:0 0 14px;padding:0;border:0;background:none;cursor:zoom-in;break-inside:avoid;border-radius:10px;overflow:hidden;position:relative}
+.gal-item img{display:block;width:100%;height:auto;transition:transform .4s ease}
+.gal-item:hover img{transform:scale(1.03)}
+.gal-item span{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 10px;color:#ffffff;font-size:13px;font-weight:600;text-align:left;background:linear-gradient(transparent,rgba(20,14,28,.75));opacity:0;transition:opacity .3s}
+.gal-item:hover span,.gal-item:focus-visible span{opacity:1}
+.gal-item:focus-visible{outline:3px solid #4a2c6e;outline-offset:2px}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(14,10,20,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 16px 24px;box-sizing:border-box}
+.lb[hidden]{display:none}
+.lb img{max-width:100%;max-height:calc(100% - 60px);object-fit:contain;border-radius:6px}
+.lb p{color:#ffffff;margin:14px 0 0;font-size:15px;text-align:center}
+.lb p small{color:#b9aecb;margin-left:8px}
+.lb button{position:absolute;border:0;background:rgba(255,255,255,.14);color:#ffffff;border-radius:50%;width:48px;height:48px;font-size:24px;cursor:pointer;line-height:1}
+.lb button:hover{background:rgba(255,255,255,.28)}
+.lb button:focus-visible{outline:2px solid #ffffff;outline-offset:2px}
+.lb .lb-close{top:12px;right:12px}
+.lb .lb-prev{left:12px;top:50%;transform:translateY(-50%)}
+.lb .lb-next{right:12px;top:50%;transform:translateY(-50%)}
+@media (max-width:640px){.gal-grid{columns:2;column-gap:8px}.gal-item{margin-bottom:8px}.gal-item span{display:none}.lb .lb-prev,.lb .lb-next{top:auto;bottom:16px;transform:none}}
+@media (prefers-reduced-motion:reduce){.gal-item img{transition:none}}
+</style>
 </head>
 <body>
 <div style="background: #ffffff; color: #231f29; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.6; min-width: 0">
@@ -87,6 +110,7 @@ img,video{max-width:100%}
 <a class="nav-link" href="#tours" style="color: #231f29; text-decoration: none">Ferðir</a>
 <a class="nav-link" href="#village" style="color: #231f29; text-decoration: none">Víkingaþorpið</a>
 <a class="nav-link" href="#video" style="color: #231f29; text-decoration: none">Myndband</a>
+<a class="nav-link" href="#gallery" style="color: #231f29; text-decoration: none">Myndir</a>
 <a class="nav-link" href="#info" style="color: #231f29; text-decoration: none">Upplýsingar</a>
 <a class="nav-link" href="#guide" style="color: #231f29; text-decoration: none">Leiðsögumaðurinn</a>
 <a class="nav-link" href="#faq" style="color: #231f29; text-decoration: none">Spurningar</a>
@@ -115,7 +139,7 @@ img,video{max-width:100%}
 <div style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; box-sizing: border-box">
 <p style="margin: 0 0 8px; font-family: Montserrat, sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.14em; color: #4a2c6e">TVÆR LEIÐIR AÐ SÖGUNNI</p>
 <h2 style="margin: 0 0 12px; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 38px">Veldu þína Saga ferð</h2>
-<p style="margin: 0 0 44px; max-width: 680px; color: #4d4656">Báðar ferðir hefjast á móttökukaffi á Viking Cafe og enda eins: kvöldverður í víkingaþorpinu og sögur við varðeldinn. Veldu þá ferð sem hentar þinni orku og þínum tíma.</p>
+<p style="margin: 0 0 44px; max-width: 680px; color: #4d4656">Báðar ferðir hefjast á Viking Cafe og enda eins: kvöldverður í víkingaþorpinu og sögur við varðeldinn. Veldu þá ferð sem hentar þinni orku og þínum tíma.</p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px">
 
 <article style="background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 14px rgba(40,20,60,0.08); display: flex; flex-direction: column">
@@ -123,7 +147,7 @@ img,video{max-width:100%}
 <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; flex: 1">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
 <h3 style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 25px">Vestrahorn Saga Tour</h3>
-<p style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 22px; color: #4a2c6e">20.000 kr. <span style="font-size: 14px; font-weight: 500; color: #6b6473">/ mann</span></p>
+<p style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 22px; color: #4a2c6e">21.000 kr. <span style="font-size: 14px; font-weight: 500; color: #6b6473">/ mann</span></p>
 </div>
 <p style="margin: 0; color: #4d4656">Heildarupplifunin. Gönguferð með leiðsögn um Stokksnes og svörtu sandströndina, auk heillar göngu um hlíðar og hryggi Vestrahorns, og síðan niður í víkingaþorpið í kvöldverð og varðeld.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; font-weight: 600">
@@ -133,11 +157,11 @@ img,video{max-width:100%}
 <span style="padding: 5px 12px; background: #fdeee3; color: #8a4a17; border-radius: 999px">Opnunarverð</span>
 </div>
 <ul style="margin: 0; padding-left: 20px; color: #4d4656; font-size: 15px">
-<li>Móttökukaffi á Viking Cafe</li>
 <li>Aðgangsmiði að Vestrahorni</li>
 <li>Gönguferð með leiðsögn um Stokksnes</li>
 <li>Fjallganga með leiðsögn á Vestrahorn</li>
 <li>Víkingaþorp, kvöldverður og varðeldur með sögum</li>
+<li>Einn drykkur á mann</li>
 </ul>
 <a href="#contact" style="margin-top: auto; align-self: flex-start; padding: 13px 24px; background: #4a2c6e; color: #ffffff; text-decoration: none; font-family: Montserrat, sans-serif; font-weight: 600; border-radius: 6px">Bóka þessa ferð</a>
 </div>
@@ -148,7 +172,7 @@ img,video{max-width:100%}
 <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; flex: 1">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
 <h3 style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 25px">Stokksnes Saga Tour</h3>
-<p style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 22px; color: #4a2c6e">12.000 kr. <span style="font-size: 14px; font-weight: 500; color: #6b6473">/ mann</span></p>
+<p style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 22px; color: #4a2c6e">14.000 kr. <span style="font-size: 14px; font-weight: 500; color: #6b6473">/ mann</span></p>
 </div>
 <p style="margin: 0; color: #4d4656">Rólegur eftirmiðdagur fyrir alla: Vestrahorn Saga Tour án stóru fjallgöngunnar. Gönguferð með leiðsögn um Stokksnes, svörtu sandströndina og sandöldurnar, og síðan sama kvöld í víkingaþorpinu með kvöldverði og varðeldi.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; font-weight: 600">
@@ -158,10 +182,10 @@ img,video{max-width:100%}
 <span style="padding: 5px 12px; background: #fdeee3; color: #8a4a17; border-radius: 999px">Opnunarverð</span>
 </div>
 <ul style="margin: 0; padding-left: 20px; color: #4d4656; font-size: 15px">
-<li>Móttökukaffi á Viking Cafe</li>
 <li>Aðgangsmiði að Vestrahorni</li>
 <li>Gönguferð með leiðsögn um Stokksnes</li>
 <li>Víkingaþorp, kvöldverður og varðeldur með sögum</li>
+<li>Einn drykkur á mann</li>
 </ul>
 <a href="#contact" style="margin-top: auto; align-self: flex-start; padding: 13px 24px; background: #4a2c6e; color: #ffffff; text-decoration: none; font-family: Montserrat, sans-serif; font-weight: 600; border-radius: 6px">Bóka þessa ferð</a>
 </div>
@@ -183,7 +207,7 @@ img,video{max-width:100%}
 <tr><th scope="row" style="text-align: left; padding: 12px 24px; border-bottom: 1px solid #ece8f0; font-weight: 600">Lengd</th><td style="padding: 12px 24px; border-bottom: 1px solid #ece8f0">Heill dagur</td><td style="padding: 12px 24px; border-bottom: 1px solid #ece8f0">Eftirmiðdagur, u.þ.b. 5 klst.</td></tr>
 <tr><th scope="row" style="text-align: left; padding: 12px 24px; border-bottom: 1px solid #ece8f0; font-weight: 600">Endar með</th><td style="padding: 12px 24px; border-bottom: 1px solid #ece8f0">Víkingaþorpi, kvöldverði og varðeldi</td><td style="padding: 12px 24px; border-bottom: 1px solid #ece8f0">Víkingaþorpi, kvöldverði og varðeldi</td></tr>
 <tr><th scope="row" style="text-align: left; padding: 12px 24px; border-bottom: 1px solid #ece8f0; font-weight: 600">Hópastærð</th><td style="padding: 12px 24px; border-bottom: 1px solid #ece8f0">2–10 manns</td><td style="padding: 12px 24px; border-bottom: 1px solid #ece8f0">2–10 manns</td></tr>
-<tr><th scope="row" style="text-align: left; padding: 12px 24px; font-weight: 600">Opnunarverð</th><td style="padding: 12px 24px; font-weight: 600; color: #4a2c6e">20.000 kr. á mann</td><td style="padding: 12px 24px; font-weight: 600; color: #4a2c6e">12.000 kr. á mann</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 12px 24px; font-weight: 600">Opnunarverð</th><td style="padding: 12px 24px; font-weight: 600; color: #4a2c6e">21.000 kr. á mann</td><td style="padding: 12px 24px; font-weight: 600; color: #4a2c6e">14.000 kr. á mann</td></tr>
 </tbody>
 </table>
 </div>
@@ -196,7 +220,7 @@ img,video{max-width:100%}
 <p style="margin: 0 0 40px; max-width: 680px; color: #4d4656">Eftir gönguna söfnumst við saman í víkingaþorpinu við rætur Vestrahorns. Kvöldverður er borinn fram, eldurinn er kveiktur og kvöldið tilheyrir gömlu sögunum.</p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
 <figure style="margin: 0"><img src="/assets/viking-statue.jpg" alt="Útskorin víkingastytta úr tré fyrir framan torfhús" style="width: 100%; height: 360px; object-fit: cover; display: block; border-radius: 10px"><figcaption style="padding-top: 12px"><strong style="font-family: Montserrat, sans-serif">Víkingaþorpið</strong><br><span style="color: #4d4656; font-size: 15px">Gakktu á milli langhúsanna og heyrðu hvernig þorpið varð til.</span></figcaption></figure>
-<figure style="margin: 0"><img src="/assets/dinner-fire.jpg" alt="Sergi að hræra í eldinum og neistar fljúga út í nóttina" style="width: 100%; height: 360px; object-fit: cover; object-position: center 45%; display: block; border-radius: 10px"><figcaption style="padding-top: 12px"><strong style="font-family: Montserrat, sans-serif">Víkingakvöldverður</strong><br><span style="color: #4d4656; font-size: 15px">Íslensk kjötsúpa eða grænmetis- og tómatsúpa, harðfiskur og íslenskt snarl. Einn drykkur á mann er innifalinn; aukadrykkir eru til sölu.</span></figcaption></figure>
+<figure style="margin: 0"><img src="/assets/dinner-fire.jpg" alt="Sergi að hræra í eldinum og neistar fljúga út í nóttina" style="width: 100%; height: 360px; object-fit: cover; object-position: center 45%; display: block; border-radius: 10px"><figcaption style="padding-top: 12px"><strong style="font-family: Montserrat, sans-serif">Víkingakvöldverður</strong><br><span style="color: #4d4656; font-size: 15px">Kvöldverður er innifalinn í lok ferðarinnar og borinn fram í víkingaþorpinu. Láttu okkur vita af ofnæmi eða sérþörfum í mataræði þegar þú bókar. Einn drykkur á mann er innifalinn; aukadrykkir eru til sölu.</span></figcaption></figure>
 <figure style="margin: 0"><img src="/assets/northern-lights.jpg" alt="Tvær manneskjur á hæð undir grænum norðurljósum" style="width: 100%; height: 360px; object-fit: cover; object-position: center 60%; display: block; border-radius: 10px"><figcaption style="padding-top: 12px"><strong style="font-family: Montserrat, sans-serif">Varðeldur og sögur</strong><br><span style="color: #4d4656; font-size: 15px">Víkingasögur og íslensk þjóðtrú við eldinn. Á heiðskírum og dimmum kvöldum er gott að fylgjast með norðurljósunum.</span></figcaption></figure>
 </div>
 </section>
@@ -215,10 +239,46 @@ img,video{max-width:100%}
 </div>
 </section>
 
+<section id="gallery" style="background: #ffffff">
+<div class="gal-wrap">
+<p style="margin: 0 0 8px; font-family: Montserrat, sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.14em; color: #4a2c6e">MYNDIR</p>
+<h2 style="margin: 0 0 12px; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 38px">Vestrahorn og Stokksnes allt árið</h2>
+<p style="margin: 0; color: #4d4656; font-size: 17px; max-width: 60ch">Allar myndirnar tók leiðsögumaðurinn sjálfur við Vestrahorn, á Stokksnesi og í víkingaþorpinu. Smelltu á mynd til að sjá hana stærri.</p>
+<div class="gal-grid" id="gal-grid">
+<button type="button" class="gal-item" data-i="0"><img src="/assets/gallery/01-mirror-beach-hiker.jpg" alt="Gengið á spegilströnd Stokksness" loading="lazy"><span>Gengið á spegilströnd Stokksness</span></button>
+<button type="button" class="gal-item" data-i="1"><img src="/assets/gallery/02-vestrahorn-summer.jpg" alt="Vestrahorn á sumardegi" loading="lazy"><span>Vestrahorn á sumardegi</span></button>
+<button type="button" class="gal-item" data-i="2"><img src="/assets/gallery/03-northern-lights-swirl.jpg" alt="Norðurljós yfir Vestrahorni" loading="lazy"><span>Norðurljós yfir Vestrahorni</span></button>
+<button type="button" class="gal-item" data-i="3"><img src="/assets/gallery/04-viking-guardian.jpg" alt="Víkingur úr tré í þorpinu" loading="lazy"><span>Víkingur úr tré í þorpinu</span></button>
+<button type="button" class="gal-item" data-i="4"><img src="/assets/gallery/05-stokksnes-dunes-sunset.jpg" alt="Gullin birta yfir sandöldum Stokksness" loading="lazy"><span>Gullin birta yfir sandöldum Stokksness</span></button>
+<button type="button" class="gal-item" data-i="5"><img src="/assets/gallery/06-guide-sergi-winter.jpg" alt="Sergi leiðsögumaður á Stokksnesi að vetri" loading="lazy"><span>Sergi leiðsögumaður á Stokksnesi að vetri</span></button>
+<button type="button" class="gal-item" data-i="6"><img src="/assets/gallery/07-black-sand-waves.jpg" alt="Svartur sandur og öldur á Stokksnesi" loading="lazy"><span>Svartur sandur og öldur á Stokksnesi</span></button>
+<button type="button" class="gal-item" data-i="7"><img src="/assets/gallery/08-viking-ship-snowstorm.jpg" alt="Víkingaskipið í snjóbyl" loading="lazy"><span>Víkingaskipið í snjóbyl</span></button>
+<button type="button" class="gal-item" data-i="8"><img src="/assets/gallery/09-spring-flowers-reflection.jpg" alt="Vorblóm og spegilmynd fjallsins" loading="lazy"><span>Vorblóm og spegilmynd fjallsins</span></button>
+<button type="button" class="gal-item" data-i="9"><img src="/assets/gallery/10-vestrahorn-reflection.jpg" alt="Vestrahorn speglast í blautum sandinum" loading="lazy"><span>Vestrahorn speglast í blautum sandinum</span></button>
+<button type="button" class="gal-item" data-i="10"><img src="/assets/gallery/11-wild-reindeer.jpg" alt="Villt hreindýr undir fjallinu" loading="lazy"><span>Villt hreindýr undir fjallinu</span></button>
+<button type="button" class="gal-item" data-i="11"><img src="/assets/gallery/12-on-board-viking-ship.jpg" alt="Um borð í víkingaskipinu" loading="lazy"><span>Um borð í víkingaskipinu</span></button>
+<button type="button" class="gal-item" data-i="12"><img src="/assets/gallery/13-sunset-reflections.jpg" alt="Sólarlag og speglun á Stokksnesi" loading="lazy"><span>Sólarlag og speglun á Stokksnesi</span></button>
+<button type="button" class="gal-item" data-i="13"><img src="/assets/gallery/14-vestrahorn-winter.jpg" alt="Vestrahorn í vetrarbúningi" loading="lazy"><span>Vestrahorn í vetrarbúningi</span></button>
+<button type="button" class="gal-item" data-i="14"><img src="/assets/gallery/15-view-from-the-ridge.jpg" alt="Útsýni af hryggnum yfir flóann" loading="lazy"><span>Útsýni af hryggnum yfir flóann</span></button>
+<button type="button" class="gal-item" data-i="15"><img src="/assets/gallery/16-viking-longhouse.jpg" alt="Torfhús við rætur fjallsins" loading="lazy"><span>Torfhús við rætur fjallsins</span></button>
+<button type="button" class="gal-item" data-i="16"><img src="/assets/gallery/17-rainbow-slopes.jpg" alt="Regnbogi yfir hlíðunum" loading="lazy"><span>Regnbogi yfir hlíðunum</span></button>
+<button type="button" class="gal-item" data-i="17"><img src="/assets/gallery/18-jagged-peaks.jpg" alt="Hvassir tindar við enda Vestrahorns" loading="lazy"><span>Hvassir tindar við enda Vestrahorns</span></button>
+<button type="button" class="gal-item" data-i="18"><img src="/assets/gallery/19-snow-reflections.jpg" alt="Snjór og speglun" loading="lazy"><span>Snjór og speglun</span></button>
+<button type="button" class="gal-item" data-i="19"><img src="/assets/gallery/20-viking-ship-bow.jpg" alt="Í stafni víkingaskipsins" loading="lazy"><span>Í stafni víkingaskipsins</span></button>
+</div>
+</div>
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Myndir">
+<button type="button" class="lb-close" id="lb-close" aria-label="Loka">×</button>
+<button type="button" class="lb-prev" id="lb-prev" aria-label="Fyrri mynd">‹</button>
+<img id="lb-img" alt="">
+<p id="lb-cap"></p>
+<button type="button" class="lb-next" id="lb-next" aria-label="Næsta mynd">›</button>
+</div>
+</section>
 <section id="info" style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; box-sizing: border-box">
 <h2 style="margin: 0 0 32px; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 38px">Hagnýtar upplýsingar</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
-<div style="padding: 24px; border: 1px solid #ece8f0; border-radius: 10px"><h3 style="margin: 0 0 8px; font-family: Montserrat, sans-serif; font-size: 18px">Mæting</h3><p style="margin: 0; color: #4d4656; font-size: 15px">Viking Cafe, Horni, 781 Höfn. Móttökukaffið bíður þín.</p></div>
+<div style="padding: 24px; border: 1px solid #ece8f0; border-radius: 10px"><h3 style="margin: 0 0 8px; font-family: Montserrat, sans-serif; font-size: 18px">Mæting</h3><p style="margin: 0; color: #4d4656; font-size: 15px">Viking Cafe, Horni, 781 Höfn.</p></div>
 <div style="padding: 24px; border: 1px solid #ece8f0; border-radius: 10px"><h3 style="margin: 0 0 8px; font-family: Montserrat, sans-serif; font-size: 18px">Hópastærð</h3><p style="margin: 0; color: #4d4656; font-size: 15px">Litlir hópar, 2 til 10 manns. Ertu ein/n á ferð? Sendu okkur samt bókunarbeiðni og við reynum að finna fyrir þig hóp (ferðir eru farnar með að lágmarki 2 þátttakendum). Verð fyrir einkahópa eftir samkomulagi.</p></div>
 <div style="padding: 24px; border: 1px solid #ece8f0; border-radius: 10px"><h3 style="margin: 0 0 8px; font-family: Montserrat, sans-serif; font-size: 18px">Tungumál</h3><p style="margin: 0; color: #4d4656; font-size: 15px">Leiðsögn á ensku, spænsku eða katalónsku.</p></div>
 <div style="padding: 24px; border: 1px solid #ece8f0; border-radius: 10px"><h3 style="margin: 0 0 8px; font-family: Montserrat, sans-serif; font-size: 18px">Greiðsla</h3><p style="margin: 0; color: #4d4656; font-size: 15px">Greitt á staðnum á Viking Cafe og tekið er við kortum. Engin fyrirframgreiðsla.</p></div>
@@ -249,7 +309,7 @@ img,video{max-width:100%}
 <h2 style="margin: 0 0 28px; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 38px">Algengar spurningar</h2>
 <details style="border-bottom: 1px solid #ece8f0; padding: 18px 0"><summary style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 17px">Hvaða ferð ætti ég að velja?</summary><p style="margin: 10px 0 0; color: #4d4656">Veldu Vestrahorn Saga Tour fyrir heildarupplifunina: gönguna um Stokksnes auk heils dags á fjallinu. Veldu Stokksnes Saga Tour fyrir sömu göngu og sama kvöld án stóru fjallgöngunnar, eða ef tíminn er naumur.</p></details>
 <details style="border-bottom: 1px solid #ece8f0; padding: 18px 0"><summary style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 17px">Þarf ég reynslu af fjallgöngum?</summary><p style="margin: 10px 0 0; color: #4d4656">Ekki fyrir Stokksnes Saga Tour. Vestrahorn Saga Tour krefst góðs almenns forms en engrar klifurreynslu.</p></details>
-<details style="border-bottom: 1px solid #ece8f0; padding: 18px 0"><summary style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 17px">Er aðgangsmiðinn innifalinn?</summary><p style="margin: 10px 0 0; color: #4d4656">Já. Aðgangsmiði að Vestrahorni, móttökukaffi á Viking Cafe og einn drykkur með kvöldverðinum eru innifalin í báðum ferðum. Aukadrykkir eru til sölu á staðnum.</p></details>
+<details style="border-bottom: 1px solid #ece8f0; padding: 18px 0"><summary style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 17px">Er aðgangsmiðinn innifalinn?</summary><p style="margin: 10px 0 0; color: #4d4656">Já. Aðgangsmiði að Vestrahorni, kvöldverður og einn drykkur á mann eru innifalin í báðum ferðum. Aukadrykkir eru til sölu á staðnum.</p></details>
 <details style="border-bottom: 1px solid #ece8f0; padding: 18px 0"><summary style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 17px">Sjáum við norðurljósin?</summary><p style="margin: 10px 0 0; color: #4d4656">Þau geta birst á heiðskírum og dimmum kvöldum frá hausti fram á vor, en þau eru aldrei tryggð.</p></details>
 <details style="border-bottom: 1px solid #ece8f0; padding: 18px 0"><summary style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 17px">Getið þið tekið tillit til sérþarfa í mataræði?</summary><p style="margin: 10px 0 0; color: #4d4656">Já. Láttu okkur vita af ofnæmi eða óskum þegar þú bókar.</p></details>
 <details style="border-bottom: 1px solid #ece8f0; padding: 18px 0"><summary style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 17px">Hvernig bóka ég og greiði?</summary><p style="margin: 10px 0 0; color: #4d4656">Sendu okkur skilaboð með ferð, dagsetningu og fjölda þátttakenda. Við staðfestum laust pláss, sendum áminningu 48 klst. fyrir ferð og þú greiðir á staðnum á Viking Cafe.</p></details>
@@ -398,6 +458,23 @@ function setup(){
 fetch("/calendar.csv",{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.text()})
 .then(function(txt){tours=parse(txt);setup()})
 .catch(function(){tours=[];setup();var l=document.getElementById("cal-list");l.replaceChildren(el("li","cal-note",T.error))});
+})();
+</script>
+<script>
+/* GALLERY: photos live in /assets/gallery. To add one, upload it there and copy a <button class="gal-item"> line. */
+(function(){
+var items=[].slice.call(document.querySelectorAll(".gal-item")), lb=document.getElementById("lb"), img=document.getElementById("lb-img"), cap=document.getElementById("lb-cap"), cur=0, last=null, x0=null;
+function show(i){cur=(i+items.length)%items.length;var s=items[cur].querySelector("img");img.src=s.src;img.alt=s.alt;cap.textContent=s.alt;var sm=document.createElement("small");sm.textContent=(cur+1)+" af "+items.length;cap.append(sm)}
+function open(i){last=document.activeElement;show(i);lb.hidden=false;document.body.style.overflow="hidden";document.getElementById("lb-close").focus()}
+function close(){lb.hidden=true;document.body.style.overflow="";if(last)last.focus()}
+items.forEach(function(b,i){b.addEventListener("click",function(){open(i)})});
+document.getElementById("lb-close").onclick=close;
+document.getElementById("lb-prev").onclick=function(){show(cur-1)};
+document.getElementById("lb-next").onclick=function(){show(cur+1)};
+lb.addEventListener("click",function(e){if(e.target===lb)close()});
+document.addEventListener("keydown",function(e){if(lb.hidden)return;if(e.key==="Escape")close();if(e.key==="ArrowLeft")show(cur-1);if(e.key==="ArrowRight")show(cur+1)});
+lb.addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});
+lb.addEventListener("touchend",function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));x0=null});
 })();
 </script>
 </body>
