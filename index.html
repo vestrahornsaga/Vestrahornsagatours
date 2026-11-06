@@ -73,6 +73,29 @@ img,video{max-width:100%}
 .cal-other a:hover{background:#4a2c6e;color:#ffffff}
 @media (max-width:480px){.cal-open{font-size:9px;padding:0 3px}}
 </style>
+<style>
+.gal-wrap{max-width:1200px;margin:0 auto;padding:88px 24px;box-sizing:border-box}
+.gal-grid{columns:4 220px;column-gap:14px;margin-top:32px}
+.gal-item{display:block;width:100%;margin:0 0 14px;padding:0;border:0;background:none;cursor:zoom-in;break-inside:avoid;border-radius:10px;overflow:hidden;position:relative}
+.gal-item img{display:block;width:100%;height:auto;transition:transform .4s ease}
+.gal-item:hover img{transform:scale(1.03)}
+.gal-item span{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 10px;color:#ffffff;font-size:13px;font-weight:600;text-align:left;background:linear-gradient(transparent,rgba(20,14,28,.75));opacity:0;transition:opacity .3s}
+.gal-item:hover span,.gal-item:focus-visible span{opacity:1}
+.gal-item:focus-visible{outline:3px solid #4a2c6e;outline-offset:2px}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(14,10,20,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 16px 24px;box-sizing:border-box}
+.lb[hidden]{display:none}
+.lb img{max-width:100%;max-height:calc(100% - 60px);object-fit:contain;border-radius:6px}
+.lb p{color:#ffffff;margin:14px 0 0;font-size:15px;text-align:center}
+.lb p small{color:#b9aecb;margin-left:8px}
+.lb button{position:absolute;border:0;background:rgba(255,255,255,.14);color:#ffffff;border-radius:50%;width:48px;height:48px;font-size:24px;cursor:pointer;line-height:1}
+.lb button:hover{background:rgba(255,255,255,.28)}
+.lb button:focus-visible{outline:2px solid #ffffff;outline-offset:2px}
+.lb .lb-close{top:12px;right:12px}
+.lb .lb-prev{left:12px;top:50%;transform:translateY(-50%)}
+.lb .lb-next{right:12px;top:50%;transform:translateY(-50%)}
+@media (max-width:640px){.gal-grid{columns:2;column-gap:8px}.gal-item{margin-bottom:8px}.gal-item span{display:none}.lb .lb-prev,.lb .lb-next{top:auto;bottom:16px;transform:none}}
+@media (prefers-reduced-motion:reduce){.gal-item img{transition:none}}
+</style>
 </head>
 <body>
 <div style="background: #ffffff; color: #231f29; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.6; min-width: 0">
@@ -87,6 +110,7 @@ img,video{max-width:100%}
 <a class="nav-link" href="#tours" style="color: #231f29; text-decoration: none">Tours</a>
 <a class="nav-link" href="#village" style="color: #231f29; text-decoration: none">Viking Village</a>
 <a class="nav-link" href="#video" style="color: #231f29; text-decoration: none">Video</a>
+<a class="nav-link" href="#gallery" style="color: #231f29; text-decoration: none">Gallery</a>
 <a class="nav-link" href="#info" style="color: #231f29; text-decoration: none">Practical info</a>
 <a class="nav-link" href="#guide" style="color: #231f29; text-decoration: none">Your guide</a>
 <a class="nav-link" href="#faq" style="color: #231f29; text-decoration: none">FAQ</a>
@@ -115,7 +139,7 @@ img,video{max-width:100%}
 <div style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; box-sizing: border-box">
 <p style="margin: 0 0 8px; font-family: Montserrat, sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.14em; color: #4a2c6e">TWO WAYS TO LIVE THE SAGA</p>
 <h2 style="margin: 0 0 12px; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 38px">Choose your Saga Tour</h2>
-<p style="margin: 0 0 44px; max-width: 680px; color: #4d4656">Both tours start with a welcome coffee at the Viking Cafe and end the same way: dinner in the Viking village and stories around the bonfire. Pick the one that fits your energy and your time.</p>
+<p style="margin: 0 0 44px; max-width: 680px; color: #4d4656">Both tours start at the Viking Cafe and end the same way: dinner in the Viking village and stories around the bonfire. Pick the one that fits your energy and your time.</p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px">
 
 <article style="background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 14px rgba(40,20,60,0.08); display: flex; flex-direction: column">
@@ -123,7 +147,7 @@ img,video{max-width:100%}
 <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; flex: 1">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
 <h3 style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 25px">Vestrahorn Saga Tour</h3>
-<p style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 22px; color: #4a2c6e">ISK 20,000 <span style="font-size: 14px; font-weight: 500; color: #6b6473">/ person</span></p>
+<p style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 22px; color: #4a2c6e">ISK 21,000 <span style="font-size: 14px; font-weight: 500; color: #6b6473">/ person</span></p>
 </div>
 <p style="margin: 0; color: #4d4656">The complete Saga experience. A guided walk around the Stokksnes peninsula and its black-sand beach, plus a full hike on the slopes and ridges of Vestrahorn, then down to the Viking village for dinner and the bonfire.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; font-weight: 600">
@@ -133,11 +157,11 @@ img,video{max-width:100%}
 <span style="padding: 5px 12px; background: #fdeee3; color: #8a4a17; border-radius: 999px">Launch price</span>
 </div>
 <ul style="margin: 0; padding-left: 20px; color: #4d4656; font-size: 15px">
-<li>Welcome coffee at the Viking Cafe</li>
 <li>Vestrahorn access ticket</li>
 <li>Guided walk around Stokksnes</li>
 <li>Guided mountain hike on Vestrahorn</li>
 <li>Viking village, dinner and bonfire with sagas</li>
+<li>One drink per person</li>
 </ul>
 <a href="#contact" style="margin-top: auto; align-self: flex-start; padding: 13px 24px; background: #4a2c6e; color: #ffffff; text-decoration: none; font-family: Montserrat, sans-serif; font-weight: 600; border-radius: 6px">Book this tour</a>
 </div>
@@ -148,7 +172,7 @@ img,video{max-width:100%}
 <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; flex: 1">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
 <h3 style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 25px">Stokksnes Saga Tour</h3>
-<p style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 22px; color: #4a2c6e">ISK 12,000 <span style="font-size: 14px; font-weight: 500; color: #6b6473">/ person</span></p>
+<p style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 22px; color: #4a2c6e">ISK 14,000 <span style="font-size: 14px; font-weight: 500; color: #6b6473">/ person</span></p>
 </div>
 <p style="margin: 0; color: #4d4656">An easy afternoon for everyone: the Vestrahorn Saga Tour without the big mountain hike. A guided walk around the Stokksnes peninsula, its black-sand beach and dunes, then the same evening in the Viking village with dinner and the bonfire.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; font-weight: 600">
@@ -158,10 +182,10 @@ img,video{max-width:100%}
 <span style="padding: 5px 12px; background: #fdeee3; color: #8a4a17; border-radius: 999px">Launch price</span>
 </div>
 <ul style="margin: 0; padding-left: 20px; color: #4d4656; font-size: 15px">
-<li>Welcome coffee at the Viking Cafe</li>
 <li>Vestrahorn access ticket</li>
 <li>Guided walk around Stokksnes</li>
 <li>Viking village, dinner and bonfire with sagas</li>
+<li>One drink per person</li>
 </ul>
 <a href="#contact" style="margin-top: auto; align-self: flex-start; padding: 13px 24px; background: #4a2c6e; color: #ffffff; text-decoration: none; font-family: Montserrat, sans-serif; font-weight: 600; border-radius: 6px">Book this tour</a>
 </div>
@@ -183,7 +207,7 @@ img,video{max-width:100%}
 <tr><th scope="row" style="text-align: left; padding: 12px 24px; border-bottom: 1px solid #ece8f0; font-weight: 600">Duration</th><td style="padding: 12px 24px; border-bottom: 1px solid #ece8f0">Full day</td><td style="padding: 12px 24px; border-bottom: 1px solid #ece8f0">Afternoon, approx. 5 h</td></tr>
 <tr><th scope="row" style="text-align: left; padding: 12px 24px; border-bottom: 1px solid #ece8f0; font-weight: 600">Ends with</th><td style="padding: 12px 24px; border-bottom: 1px solid #ece8f0">Viking village, dinner and bonfire</td><td style="padding: 12px 24px; border-bottom: 1px solid #ece8f0">Viking village, dinner and bonfire</td></tr>
 <tr><th scope="row" style="text-align: left; padding: 12px 24px; border-bottom: 1px solid #ece8f0; font-weight: 600">Group size</th><td style="padding: 12px 24px; border-bottom: 1px solid #ece8f0">2–10 people</td><td style="padding: 12px 24px; border-bottom: 1px solid #ece8f0">2–10 people</td></tr>
-<tr><th scope="row" style="text-align: left; padding: 12px 24px; font-weight: 600">Launch price</th><td style="padding: 12px 24px; font-weight: 600; color: #4a2c6e">ISK 20,000 per person</td><td style="padding: 12px 24px; font-weight: 600; color: #4a2c6e">ISK 12,000 per person</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 12px 24px; font-weight: 600">Launch price</th><td style="padding: 12px 24px; font-weight: 600; color: #4a2c6e">ISK 21,000 per person</td><td style="padding: 12px 24px; font-weight: 600; color: #4a2c6e">ISK 14,000 per person</td></tr>
 </tbody>
 </table>
 </div>
@@ -196,7 +220,7 @@ img,video{max-width:100%}
 <p style="margin: 0 0 40px; max-width: 680px; color: #4d4656">After the walk, we gather in the replica Viking village at the foot of Vestrahorn. Dinner is served, the fire is lit, and the evening belongs to the old stories.</p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
 <figure style="margin: 0"><img src="/assets/viking-statue.jpg" alt="Carved wooden Viking statue in front of a turf-roofed longhouse" style="width: 100%; height: 360px; object-fit: cover; display: block; border-radius: 10px"><figcaption style="padding-top: 12px"><strong style="font-family: Montserrat, sans-serif">The Viking village</strong><br><span style="color: #4d4656; font-size: 15px">Walk among the longhouses and hear how the village came to stand here.</span></figcaption></figure>
-<figure style="margin: 0"><img src="/assets/dinner-fire.jpg" alt="Sergi stoking the fire with sparks flying into the night" style="width: 100%; height: 360px; object-fit: cover; object-position: center 45%; display: block; border-radius: 10px"><figcaption style="padding-top: 12px"><strong style="font-family: Montserrat, sans-serif">Viking dinner</strong><br><span style="color: #4d4656; font-size: 15px">Icelandic lamb soup (kjötsúpa) or a vegetable and tomato soup, traditional Icelandic dried fish (harðfiskur) and Icelandic snacks. One drink per person included; extra drinks available to buy.</span></figcaption></figure>
+<figure style="margin: 0"><img src="/assets/dinner-fire.jpg" alt="Sergi stoking the fire with sparks flying into the night" style="width: 100%; height: 360px; object-fit: cover; object-position: center 45%; display: block; border-radius: 10px"><figcaption style="padding-top: 12px"><strong style="font-family: Montserrat, sans-serif">Viking dinner</strong><br><span style="color: #4d4656; font-size: 15px">Dinner is included at the end of the tour, served in the Viking village. Let us know about any allergies or dietary needs when you book. One drink per person included; extra drinks available to buy.</span></figcaption></figure>
 <figure style="margin: 0"><img src="/assets/northern-lights.jpg" alt="Two people on a hilltop under swirling green northern lights" style="width: 100%; height: 360px; object-fit: cover; object-position: center 60%; display: block; border-radius: 10px"><figcaption style="padding-top: 12px"><strong style="font-family: Montserrat, sans-serif">Bonfire and sagas</strong><br><span style="color: #4d4656; font-size: 15px">Viking sagas and Icelandic folklore by the fire. On clear, dark nights, watch for the northern lights.</span></figcaption></figure>
 </div>
 </section>
@@ -215,10 +239,46 @@ img,video{max-width:100%}
 </div>
 </section>
 
+<section id="gallery" style="background: #ffffff">
+<div class="gal-wrap">
+<p style="margin: 0 0 8px; font-family: Montserrat, sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.14em; color: #4a2c6e">GALLERY</p>
+<h2 style="margin: 0 0 12px; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 38px">Vestrahorn and Stokksnes through the seasons</h2>
+<p style="margin: 0; color: #4d4656; font-size: 17px; max-width: 60ch">Every photo here was taken by your guide, around Vestrahorn, Stokksnes and the Viking village. Tap a photo to see it bigger.</p>
+<div class="gal-grid" id="gal-grid">
+<button type="button" class="gal-item" data-i="0"><img src="/assets/gallery/01-mirror-beach-hiker.jpg" alt="Walking the mirror beach of Stokksnes" loading="lazy"><span>Walking the mirror beach of Stokksnes</span></button>
+<button type="button" class="gal-item" data-i="1"><img src="/assets/gallery/02-vestrahorn-summer.jpg" alt="Vestrahorn on a summer day" loading="lazy"><span>Vestrahorn on a summer day</span></button>
+<button type="button" class="gal-item" data-i="2"><img src="/assets/gallery/03-northern-lights-swirl.jpg" alt="Northern lights over Vestrahorn" loading="lazy"><span>Northern lights over Vestrahorn</span></button>
+<button type="button" class="gal-item" data-i="3"><img src="/assets/gallery/04-viking-guardian.jpg" alt="A wooden Viking guardian in the village" loading="lazy"><span>A wooden Viking guardian in the village</span></button>
+<button type="button" class="gal-item" data-i="4"><img src="/assets/gallery/05-stokksnes-dunes-sunset.jpg" alt="Golden light over the Stokksnes dunes" loading="lazy"><span>Golden light over the Stokksnes dunes</span></button>
+<button type="button" class="gal-item" data-i="5"><img src="/assets/gallery/06-guide-sergi-winter.jpg" alt="Your guide, Sergi, at Stokksnes in winter" loading="lazy"><span>Your guide, Sergi, at Stokksnes in winter</span></button>
+<button type="button" class="gal-item" data-i="6"><img src="/assets/gallery/07-black-sand-waves.jpg" alt="Black sand and waves at Stokksnes" loading="lazy"><span>Black sand and waves at Stokksnes</span></button>
+<button type="button" class="gal-item" data-i="7"><img src="/assets/gallery/08-viking-ship-snowstorm.jpg" alt="The Viking ship in a snowstorm" loading="lazy"><span>The Viking ship in a snowstorm</span></button>
+<button type="button" class="gal-item" data-i="8"><img src="/assets/gallery/09-spring-flowers-reflection.jpg" alt="Spring flowers and mountain reflections" loading="lazy"><span>Spring flowers and mountain reflections</span></button>
+<button type="button" class="gal-item" data-i="9"><img src="/assets/gallery/10-vestrahorn-reflection.jpg" alt="Vestrahorn reflected on the wet sand" loading="lazy"><span>Vestrahorn reflected on the wet sand</span></button>
+<button type="button" class="gal-item" data-i="10"><img src="/assets/gallery/11-wild-reindeer.jpg" alt="Wild reindeer below the mountain" loading="lazy"><span>Wild reindeer below the mountain</span></button>
+<button type="button" class="gal-item" data-i="11"><img src="/assets/gallery/12-on-board-viking-ship.jpg" alt="On board the Viking ship" loading="lazy"><span>On board the Viking ship</span></button>
+<button type="button" class="gal-item" data-i="12"><img src="/assets/gallery/13-sunset-reflections.jpg" alt="Sunset reflections at Stokksnes" loading="lazy"><span>Sunset reflections at Stokksnes</span></button>
+<button type="button" class="gal-item" data-i="13"><img src="/assets/gallery/14-vestrahorn-winter.jpg" alt="Vestrahorn in winter white" loading="lazy"><span>Vestrahorn in winter white</span></button>
+<button type="button" class="gal-item" data-i="14"><img src="/assets/gallery/15-view-from-the-ridge.jpg" alt="The view from the ridge over the bay" loading="lazy"><span>The view from the ridge over the bay</span></button>
+<button type="button" class="gal-item" data-i="15"><img src="/assets/gallery/16-viking-longhouse.jpg" alt="A turf longhouse at the foot of the mountain" loading="lazy"><span>A turf longhouse at the foot of the mountain</span></button>
+<button type="button" class="gal-item" data-i="16"><img src="/assets/gallery/17-rainbow-slopes.jpg" alt="A rainbow over the slopes" loading="lazy"><span>A rainbow over the slopes</span></button>
+<button type="button" class="gal-item" data-i="17"><img src="/assets/gallery/18-jagged-peaks.jpg" alt="The jagged peaks at the end of Vestrahorn" loading="lazy"><span>The jagged peaks at the end of Vestrahorn</span></button>
+<button type="button" class="gal-item" data-i="18"><img src="/assets/gallery/19-snow-reflections.jpg" alt="Snow and reflections" loading="lazy"><span>Snow and reflections</span></button>
+<button type="button" class="gal-item" data-i="19"><img src="/assets/gallery/20-viking-ship-bow.jpg" alt="At the bow of the Viking ship" loading="lazy"><span>At the bow of the Viking ship</span></button>
+</div>
+</div>
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Gallery">
+<button type="button" class="lb-close" id="lb-close" aria-label="Close">×</button>
+<button type="button" class="lb-prev" id="lb-prev" aria-label="Previous photo">‹</button>
+<img id="lb-img" alt="">
+<p id="lb-cap"></p>
+<button type="button" class="lb-next" id="lb-next" aria-label="Next photo">›</button>
+</div>
+</section>
 <section id="info" style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; box-sizing: border-box">
 <h2 style="margin: 0 0 32px; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 38px">Practical information</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
-<div style="padding: 24px; border: 1px solid #ece8f0; border-radius: 10px"><h3 style="margin: 0 0 8px; font-family: Montserrat, sans-serif; font-size: 18px">Meeting point</h3><p style="margin: 0; color: #4d4656; font-size: 15px">Viking Cafe, Horni, 781 Höfn. Your welcome coffee is waiting.</p></div>
+<div style="padding: 24px; border: 1px solid #ece8f0; border-radius: 10px"><h3 style="margin: 0 0 8px; font-family: Montserrat, sans-serif; font-size: 18px">Meeting point</h3><p style="margin: 0; color: #4d4656; font-size: 15px">Viking Cafe, Horni, 781 Höfn.</p></div>
 <div style="padding: 24px; border: 1px solid #ece8f0; border-radius: 10px"><h3 style="margin: 0 0 8px; font-family: Montserrat, sans-serif; font-size: 18px">Group size</h3><p style="margin: 0; color: #4d4656; font-size: 15px">Small groups of 2 to 10 people. Travelling solo? Send a request anyway and we'll try to match you with a group (tours run with a minimum of 2 people). Private group prices on request.</p></div>
 <div style="padding: 24px; border: 1px solid #ece8f0; border-radius: 10px"><h3 style="margin: 0 0 8px; font-family: Montserrat, sans-serif; font-size: 18px">Languages</h3><p style="margin: 0; color: #4d4656; font-size: 15px">Guided in English, Spanish or Catalan.</p></div>
 <div style="padding: 24px; border: 1px solid #ece8f0; border-radius: 10px"><h3 style="margin: 0 0 8px; font-family: Montserrat, sans-serif; font-size: 18px">Payment</h3><p style="margin: 0; color: #4d4656; font-size: 15px">Pay on the day at the Viking Cafe, card accepted. No prepayment needed.</p></div>
@@ -249,7 +309,7 @@ img,video{max-width:100%}
 <h2 style="margin: 0 0 28px; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 38px">Frequently asked questions</h2>
 <details style="border-bottom: 1px solid #ece8f0; padding: 18px 0"><summary style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 17px">Which tour should I choose?</summary><p style="margin: 10px 0 0; color: #4d4656">Choose the Vestrahorn Saga Tour for the complete experience: the Stokksnes walk plus a full day of hiking on the mountain. Choose the Stokksnes Saga Tour for the same walk and evening without the big hike, or if you are short on time.</p></details>
 <details style="border-bottom: 1px solid #ece8f0; padding: 18px 0"><summary style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 17px">Do I need hiking experience?</summary><p style="margin: 10px 0 0; color: #4d4656">Not for the Stokksnes Saga Tour. The Vestrahorn Saga Tour needs good general fitness, but no climbing experience.</p></details>
-<details style="border-bottom: 1px solid #ece8f0; padding: 18px 0"><summary style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 17px">Is the access ticket included?</summary><p style="margin: 10px 0 0; color: #4d4656">Yes. The Vestrahorn access ticket, a welcome coffee at the Viking Cafe and one drink with dinner are included in both tours. Extra drinks can be bought on site.</p></details>
+<details style="border-bottom: 1px solid #ece8f0; padding: 18px 0"><summary style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 17px">Is the access ticket included?</summary><p style="margin: 10px 0 0; color: #4d4656">Yes. The Vestrahorn access ticket, dinner and one drink per person are included in both tours. Extra drinks can be bought on site.</p></details>
 <details style="border-bottom: 1px solid #ece8f0; padding: 18px 0"><summary style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 17px">Will we see the northern lights?</summary><p style="margin: 10px 0 0; color: #4d4656">They can appear on clear, dark nights from autumn to early spring, but they are never guaranteed.</p></details>
 <details style="border-bottom: 1px solid #ece8f0; padding: 18px 0"><summary style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 17px">Can you cater for dietary needs?</summary><p style="margin: 10px 0 0; color: #4d4656">Yes. Tell us about allergies or preferences when you book.</p></details>
 <details style="border-bottom: 1px solid #ece8f0; padding: 18px 0"><summary style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 17px">How do I book and pay?</summary><p style="margin: 10px 0 0; color: #4d4656">Send us a message with your tour, date and number of people. We confirm availability, send a reminder 48 hours before, and you pay on the day at the Viking Cafe.</p></details>
@@ -398,6 +458,23 @@ function setup(){
 fetch("/calendar.csv",{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.text()})
 .then(function(txt){tours=parse(txt);setup()})
 .catch(function(){tours=[];setup();var l=document.getElementById("cal-list");l.replaceChildren(el("li","cal-note",T.error))});
+})();
+</script>
+<script>
+/* GALLERY: photos live in /assets/gallery. To add one, upload it there and copy a <button class="gal-item"> line. */
+(function(){
+var items=[].slice.call(document.querySelectorAll(".gal-item")), lb=document.getElementById("lb"), img=document.getElementById("lb-img"), cap=document.getElementById("lb-cap"), cur=0, last=null, x0=null;
+function show(i){cur=(i+items.length)%items.length;var s=items[cur].querySelector("img");img.src=s.src;img.alt=s.alt;cap.textContent=s.alt;var sm=document.createElement("small");sm.textContent=(cur+1)+" of "+items.length;cap.append(sm)}
+function open(i){last=document.activeElement;show(i);lb.hidden=false;document.body.style.overflow="hidden";document.getElementById("lb-close").focus()}
+function close(){lb.hidden=true;document.body.style.overflow="";if(last)last.focus()}
+items.forEach(function(b,i){b.addEventListener("click",function(){open(i)})});
+document.getElementById("lb-close").onclick=close;
+document.getElementById("lb-prev").onclick=function(){show(cur-1)};
+document.getElementById("lb-next").onclick=function(){show(cur+1)};
+lb.addEventListener("click",function(e){if(e.target===lb)close()});
+document.addEventListener("keydown",function(e){if(lb.hidden)return;if(e.key==="Escape")close();if(e.key==="ArrowLeft")show(cur-1);if(e.key==="ArrowRight")show(cur+1)});
+lb.addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});
+lb.addEventListener("touchend",function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));x0=null});
 })();
 </script>
 </body>
